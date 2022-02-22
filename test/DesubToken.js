@@ -1,5 +1,5 @@
 const { expect } = require("chai");
-
+const { ethers, upgrades } = require("hardhat");
 
 describe("Token contract", function () {
 
@@ -7,15 +7,18 @@ describe("Token contract", function () {
   let deployedDesubToken;
   let owner;
   let addrs;
+  
 
   beforeEach(async function () {
+
     // Get the ContractFactory and Signers here.
-    Token = await ethers.getContractFactory("DesubToken");
     [owner, ...addrs] = await ethers.getSigners();
 
-    
+    DesubToken = await ethers.getContractFactory("DesubToken");
+   
+    deployedDesubToken = await upgrades.deployProxy(DesubToken,["Desub Content Token","DESUB"]);
+    await deployedDesubToken.deployed();
 
-    deployedDesubToken = await Token.deploy("DESUB","DESUB");
     await deployedDesubToken.mint(addrs[0].address, 69);
     await deployedDesubToken.mint(addrs[0].address, 420);
 
@@ -24,7 +27,7 @@ describe("Token contract", function () {
   describe("Deployment", function () {
  
     it("Should set the right owner (0)", async function () {
-      expect(await deployedDesubToken.owner()).to.equal(owner.address);
+        expect(await deployedDesubToken.owner()).to.equal(owner.address);
     });
 
   });
@@ -158,7 +161,7 @@ describe("Token contract", function () {
       
         let finalBalance = await addrs[4].getBalance();
 
-        console.log(finalBalance.sub(initialBalance));
+        //console.log(finalBalance.sub(initialBalance));
       
         expect(finalBalance.sub(initialBalance).toNumber()).to.equal(88000);
     });
@@ -227,7 +230,7 @@ describe("Token contract", function () {
       
         let finalBalance = await addrs[4].getBalance();
 
-        console.log(finalBalance.sub(initialBalance));
+        //console.log(finalBalance.sub(initialBalance));
       
         expect(finalBalance.sub(initialBalance).toNumber()).to.equal(88000);
     });
@@ -312,7 +315,7 @@ describe("Token contract", function () {
       
         let finalBalance = await addrs[6].getBalance();
 
-        console.log(finalBalance.sub(initialBalance));
+        //console.log(finalBalance.sub(initialBalance));
       
         expect(finalBalance.sub(initialBalance).toNumber()).to.equal(88000);
     });
@@ -367,7 +370,18 @@ describe("Token contract", function () {
 
   });
 
+  describe("Upgradeable", function() {
+    it('Should be upgradeable', async () => {
+      const DesubTokenV2 = await ethers.getContractFactory("DesubTokenV2");
+      const upgraded = await upgrades.upgradeProxy(deployedDesubToken.address, DesubTokenV2);
+  
+      console.log(deployedDesubToken.address);
+      console.log(upgraded.address);
 
+      const value = await upgraded.upgradeTest();
+      expect(value).to.equal(88);
+    });
+  });
   
 });
 

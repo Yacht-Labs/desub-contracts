@@ -2,15 +2,15 @@
 
 pragma solidity ^0.8.11;
 
-import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol"; 
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts-upgradeable/utils/structs/EnumerableSetUpgradeable.sol"; 
+import "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "hardhat/console.sol";
 
 
+contract DesubToken is Initializable, ReentrancyGuardUpgradeable {
 
-contract DesubToken is ReentrancyGuard {
-
-    using EnumerableSet for EnumerableSet.UintSet;
+    using EnumerableSetUpgradeable for EnumerableSetUpgradeable.UintSet;
   
      // Name and symbol for the Desub content token contract
     string private _name;
@@ -31,7 +31,7 @@ contract DesubToken is ReentrancyGuard {
     mapping(uint256 => address) private _contentTokenOwners;
 
     // This maps each address to an enumerable set of the tokenIds owned by that address
-    mapping(address => EnumerableSet.UintSet) private _contentTokenHoldings;
+    mapping(address => EnumerableSetUpgradeable.UintSet) private _contentTokenHoldings;
     
     // Mapping owner address to token count
     mapping(address => uint256) private _balances;
@@ -67,8 +67,9 @@ contract DesubToken is ReentrancyGuard {
 
     event Transfer(address indexed from, address indexed to, uint256 indexed tokenID);
 
-    //initialize the Desub Token Contract
-    constructor(string memory name_, string memory symbol_) {
+    //initialize the Desub Token Contract (compatible with Proxy Upgrade pattern)
+    function initialize(string memory name_, string memory symbol_) public initializer {
+        __ReentrancyGuard_init();
         _name = name_;
         _symbol = symbol_;
         owner = msg.sender;
@@ -121,7 +122,7 @@ contract DesubToken is ReentrancyGuard {
         uint256 totalRevenueForToken = _subTokenIncrementers[tokenID] * universalContentPrice;
         uint256 tokenRoyaltyForTokenOwner = (totalRevenueForToken * 80) / 100;
 
-        console.log("%s sub token sales generate %s wei for the token holder", _subTokenIncrementers[tokenID], tokenRoyaltyForTokenOwner);
+        //console.log("%s sub token sales generate %s wei for the token holder", _subTokenIncrementers[tokenID], tokenRoyaltyForTokenOwner);
         return tokenRoyaltyForTokenOwner;
     }
 
@@ -130,14 +131,14 @@ contract DesubToken is ReentrancyGuard {
         uint256 revenueReferrerHasGenerated = (numberOfReferralsForTokenIDandAddress(tokenID, subTokenHolder) * universalContentPrice);
         uint256 totalRoyaltiesEarnedByReferrer = (revenueReferrerHasGenerated) / 10;
 
-        console.log("%s sub token sales generate %s wei for the referring sub token holder", numberOfReferralsForTokenIDandAddress(tokenID, subTokenHolder), totalRoyaltiesEarnedByReferrer);
+        //console.log("%s sub token sales generate %s wei for the referring sub token holder", numberOfReferralsForTokenIDandAddress(tokenID, subTokenHolder), totalRoyaltiesEarnedByReferrer);
         return totalRoyaltiesEarnedByReferrer;
     }
 
     // Payout of stack rewards determined by sub token purchase sequence
     function getSubTokenHolderStackRewardPct(address subTokenHolder, uint256 tokenID) public view returns (uint256) {
         uint256 sequence = getSequenceOfPurchaseOfTokenIDByAddress(tokenID, subTokenHolder);
-        console.log("%s is the percentage of the %s (st/nd/rd/th) purchaser ", _subTokenHolderStackRewardPct[tokenID][sequence], sequence);
+        //console.log("%s is the percentage of the %s (st/nd/rd/th) purchaser ", _subTokenHolderStackRewardPct[tokenID][sequence], sequence);
         return _subTokenHolderStackRewardPct[tokenID][sequence];
     }
 
@@ -150,7 +151,7 @@ contract DesubToken is ReentrancyGuard {
         //                                                         ^7.5%    ^stack reward factor    ^to get 7.5
 
         uint256 reward = (totalRevenueForToken * percentage * 75) / (28000000 * 1000);
-        console.log("%s is the reward of the %s pot", reward, totalRevenueForToken);
+        //console.log("%s is the reward of the %s pot", reward, totalRevenueForToken);
 
         return reward;
     }
@@ -191,7 +192,7 @@ contract DesubToken is ReentrancyGuard {
         require(amount > 0, "Payout amount must be greater than 0");
 
         uint256 amountOwed = getTokenHolderRoyaltyGrossTotal(tokenID) - _tokenHolderRoyaltyPayouts[tokenID][msg.sender];
-        console.log("%s is owed to %s", amountOwed, msg.sender);
+        //console.log("%s is owed to %s", amountOwed, msg.sender);
         require(amountOwed >= amount, "Can't pay out more than what is owed to you");
 
         // Increment amount paid out 

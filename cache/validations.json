@@ -1,0 +1,1120 @@
+{
+  "version": "3.2",
+  "log": [
+    {
+      "Initializable": {
+        "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:35",
+        "inherit": [],
+        "libraries": [
+          "AddressUpgradeable"
+        ],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "Initializable",
+              "label": "_initialized",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:39"
+            },
+            {
+              "contract": "Initializable",
+              "label": "_initializing",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:44"
+            }
+          ],
+          "types": {
+            "t_bool": {
+              "label": "bool"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "ReentrancyGuardUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol:23",
+        "inherit": [
+          "Initializable"
+        ],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "ReentrancyGuardUpgradeable",
+              "label": "_status",
+              "type": "t_uint256",
+              "src": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol:38"
+            },
+            {
+              "contract": "ReentrancyGuardUpgradeable",
+              "label": "__gap",
+              "type": "t_array(t_uint256)49_storage",
+              "src": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol:74"
+            }
+          ],
+          "types": {
+            "t_uint256": {
+              "label": "uint256"
+            },
+            "t_array(t_uint256)49_storage": {
+              "label": "uint256[49]"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "AddressUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol:9",
+        "version": {
+          "withMetadata": "b4cd76c46f252229667db54d569be91a1aadff5dde4c2878439b80406b3842ac",
+          "withoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff",
+          "linkedWithoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "EnumerableSetUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/utils/structs/EnumerableSetUpgradeable.sol:30",
+        "version": {
+          "withMetadata": "41c435fce4cb156d899649b04332a8ca7602ac9b7c1193dae552030b5ef36913",
+          "withoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff",
+          "linkedWithoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "DesubToken": {
+        "src": "contracts/DesubToken.sol:11",
+        "version": {
+          "withMetadata": "e1623ee9ceb898c9f6191d35ea23993c63191ea4802e552fb8bee479d6ee8d59",
+          "withoutMetadata": "65f1a30e9030664c40813e06343e28e45362424fbbd4dcbb7c2f6f76ed2fab8d",
+          "linkedWithoutMetadata": "65f1a30e9030664c40813e06343e28e45362424fbbd4dcbb7c2f6f76ed2fab8d"
+        },
+        "inherit": [
+          "ReentrancyGuardUpgradeable",
+          "Initializable"
+        ],
+        "libraries": [
+          "EnumerableSetUpgradeable"
+        ],
+        "methods": [
+          "initialize(string,string)",
+          "ownerOf(uint256)",
+          "balanceOf(address)",
+          "tokenOfOwnerByIndex(address,uint256)",
+          "numberOfReferralsForTokenIDandAddress(uint256,address)",
+          "getSequenceOfPurchaseOfTokenIDByAddress(uint256,address)",
+          "getNumberOfSubTokensSoldOfTokenID(uint256)",
+          "getTokenHolderRoyaltyGrossTotal(uint256)",
+          "getSubTokenHolderRoyaltyBalance(address,uint256)",
+          "getSubTokenHolderStackRewardPct(address,uint256)",
+          "getSubTokenHolderTotalStackReward(address,uint256)",
+          "getTokenHolderRoyaltyPaidOut(uint256)",
+          "getSubTokenHolderReferralRoyaltyPaidOut(uint256)",
+          "getSubTokenHolderStackRewardPaidOut(uint256)",
+          "payOutTokenHolderRoyalty(uint256,uint256,address)",
+          "payOutSubTokenHolderReferralRoyalty(uint256,uint256,address)",
+          "payOutSubTokenHolderStackReward(uint256,uint256,address)",
+          "mint(address,uint256)",
+          "purchaseSubToken(address,uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "DesubToken",
+              "label": "_name",
+              "type": "t_string_storage",
+              "src": "contracts/DesubToken.sol:16"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_symbol",
+              "type": "t_string_storage",
+              "src": "contracts/DesubToken.sol:17"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "owner",
+              "type": "t_address",
+              "src": "contracts/DesubToken.sol:28"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_contentTokenOwners",
+              "type": "t_mapping(t_uint256,t_address)",
+              "src": "contracts/DesubToken.sol:31"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_contentTokenHoldings",
+              "type": "t_mapping(t_address,t_struct(UintSet)844_storage)",
+              "src": "contracts/DesubToken.sol:34"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_balances",
+              "type": "t_mapping(t_address,t_uint256)",
+              "src": "contracts/DesubToken.sol:37"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_subTokenIncrementers",
+              "type": "t_mapping(t_uint256,t_uint256)",
+              "src": "contracts/DesubToken.sol:41"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_subTokenPurchaseSequences",
+              "type": "t_mapping(t_uint256,t_mapping(t_address,t_uint256))",
+              "src": "contracts/DesubToken.sol:47"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_subTokenHolderStackRewardPct",
+              "type": "t_mapping(t_uint256,t_mapping(t_uint256,t_uint256))",
+              "src": "contracts/DesubToken.sol:51"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_subTokenReferrals",
+              "type": "t_mapping(t_uint256,t_mapping(t_address,t_uint256))",
+              "src": "contracts/DesubToken.sol:54"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_tokenHolderRoyaltyPayouts",
+              "type": "t_mapping(t_uint256,t_mapping(t_address,t_uint256))",
+              "src": "contracts/DesubToken.sol:58"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_subTokenHolderReferralPayouts",
+              "type": "t_mapping(t_uint256,t_mapping(t_address,t_uint256))",
+              "src": "contracts/DesubToken.sol:62"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_subTokenHolderStackRewardPayouts",
+              "type": "t_mapping(t_uint256,t_mapping(t_address,t_uint256))",
+              "src": "contracts/DesubToken.sol:66"
+            }
+          ],
+          "types": {
+            "t_string_storage": {
+              "label": "string"
+            },
+            "t_address": {
+              "label": "address"
+            },
+            "t_mapping(t_uint256,t_address)": {
+              "label": "mapping(uint256 => address)"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            },
+            "t_mapping(t_address,t_struct(UintSet)844_storage)": {
+              "label": "mapping(address => struct EnumerableSetUpgradeable.UintSet)"
+            },
+            "t_struct(UintSet)844_storage": {
+              "label": "struct EnumerableSetUpgradeable.UintSet",
+              "members": [
+                {
+                  "label": "_inner",
+                  "type": "t_struct(Set)386_storage"
+                }
+              ]
+            },
+            "t_struct(Set)386_storage": {
+              "label": "struct EnumerableSetUpgradeable.Set",
+              "members": [
+                {
+                  "label": "_values",
+                  "type": "t_array(t_bytes32)dyn_storage"
+                },
+                {
+                  "label": "_indexes",
+                  "type": "t_mapping(t_bytes32,t_uint256)"
+                }
+              ]
+            },
+            "t_array(t_bytes32)dyn_storage": {
+              "label": "bytes32[]"
+            },
+            "t_bytes32": {
+              "label": "bytes32"
+            },
+            "t_mapping(t_bytes32,t_uint256)": {
+              "label": "mapping(bytes32 => uint256)"
+            },
+            "t_mapping(t_address,t_uint256)": {
+              "label": "mapping(address => uint256)"
+            },
+            "t_mapping(t_uint256,t_uint256)": {
+              "label": "mapping(uint256 => uint256)"
+            },
+            "t_mapping(t_uint256,t_mapping(t_address,t_uint256))": {
+              "label": "mapping(uint256 => mapping(address => uint256))"
+            },
+            "t_mapping(t_uint256,t_mapping(t_uint256,t_uint256))": {
+              "label": "mapping(uint256 => mapping(uint256 => uint256))"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "console": {
+        "src": "hardhat/console.sol:4",
+        "version": {
+          "withMetadata": "6491c02acc23094555b3a3d10900e1e508dd2ccdf8080845808de539f078ea20",
+          "withoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff",
+          "linkedWithoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      }
+    },
+    {
+      "Initializable": {
+        "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:35",
+        "inherit": [],
+        "libraries": [
+          "AddressUpgradeable"
+        ],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "Initializable",
+              "label": "_initialized",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:39"
+            },
+            {
+              "contract": "Initializable",
+              "label": "_initializing",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:44"
+            }
+          ],
+          "types": {
+            "t_bool": {
+              "label": "bool"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "ReentrancyGuardUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol:23",
+        "inherit": [
+          "Initializable"
+        ],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "ReentrancyGuardUpgradeable",
+              "label": "_status",
+              "type": "t_uint256",
+              "src": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol:38"
+            },
+            {
+              "contract": "ReentrancyGuardUpgradeable",
+              "label": "__gap",
+              "type": "t_array(t_uint256)49_storage",
+              "src": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol:74"
+            }
+          ],
+          "types": {
+            "t_uint256": {
+              "label": "uint256"
+            },
+            "t_array(t_uint256)49_storage": {
+              "label": "uint256[49]"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "AddressUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol:9",
+        "version": {
+          "withMetadata": "b4cd76c46f252229667db54d569be91a1aadff5dde4c2878439b80406b3842ac",
+          "withoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff",
+          "linkedWithoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "EnumerableSetUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/utils/structs/EnumerableSetUpgradeable.sol:30",
+        "version": {
+          "withMetadata": "41c435fce4cb156d899649b04332a8ca7602ac9b7c1193dae552030b5ef36913",
+          "withoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff",
+          "linkedWithoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "DesubToken": {
+        "src": "contracts/DesubToken.sol:11",
+        "version": {
+          "withMetadata": "71ee8ec7f62f1aa78155f8d9565f78b29d6a5f2a354b254b98b85fc98b20ee8f",
+          "withoutMetadata": "8529bd60b6f717954abb58400429b6d98907a476b63801fe46f00edd3cfaf172",
+          "linkedWithoutMetadata": "8529bd60b6f717954abb58400429b6d98907a476b63801fe46f00edd3cfaf172"
+        },
+        "inherit": [
+          "ReentrancyGuardUpgradeable",
+          "Initializable"
+        ],
+        "libraries": [
+          "EnumerableSetUpgradeable",
+          "console"
+        ],
+        "methods": [
+          "initialize(string,string)",
+          "ownerOf(uint256)",
+          "balanceOf(address)",
+          "tokenOfOwnerByIndex(address,uint256)",
+          "numberOfReferralsForTokenIDandAddress(uint256,address)",
+          "getSequenceOfPurchaseOfTokenIDByAddress(uint256,address)",
+          "getNumberOfSubTokensSoldOfTokenID(uint256)",
+          "getTokenHolderRoyaltyGrossTotal(uint256)",
+          "getSubTokenHolderRoyaltyBalance(address,uint256)",
+          "getSubTokenHolderStackRewardPct(address,uint256)",
+          "getSubTokenHolderTotalStackReward(address,uint256)",
+          "getTokenHolderRoyaltyPaidOut(uint256)",
+          "getSubTokenHolderReferralRoyaltyPaidOut(uint256)",
+          "getSubTokenHolderStackRewardPaidOut(uint256)",
+          "payOutTokenHolderRoyalty(uint256,uint256,address)",
+          "payOutSubTokenHolderReferralRoyalty(uint256,uint256,address)",
+          "payOutSubTokenHolderStackReward(uint256,uint256,address)",
+          "mint(address,uint256)",
+          "purchaseSubToken(address,uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "DesubToken",
+              "label": "_name",
+              "type": "t_string_storage",
+              "src": "contracts/DesubToken.sol:16"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_symbol",
+              "type": "t_string_storage",
+              "src": "contracts/DesubToken.sol:17"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "owner",
+              "type": "t_address",
+              "src": "contracts/DesubToken.sol:28"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_contentTokenOwners",
+              "type": "t_mapping(t_uint256,t_address)",
+              "src": "contracts/DesubToken.sol:31"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_contentTokenHoldings",
+              "type": "t_mapping(t_address,t_struct(UintSet)844_storage)",
+              "src": "contracts/DesubToken.sol:34"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_balances",
+              "type": "t_mapping(t_address,t_uint256)",
+              "src": "contracts/DesubToken.sol:37"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_subTokenIncrementers",
+              "type": "t_mapping(t_uint256,t_uint256)",
+              "src": "contracts/DesubToken.sol:41"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_subTokenPurchaseSequences",
+              "type": "t_mapping(t_uint256,t_mapping(t_address,t_uint256))",
+              "src": "contracts/DesubToken.sol:47"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_subTokenHolderStackRewardPct",
+              "type": "t_mapping(t_uint256,t_mapping(t_uint256,t_uint256))",
+              "src": "contracts/DesubToken.sol:51"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_subTokenReferrals",
+              "type": "t_mapping(t_uint256,t_mapping(t_address,t_uint256))",
+              "src": "contracts/DesubToken.sol:54"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_tokenHolderRoyaltyPayouts",
+              "type": "t_mapping(t_uint256,t_mapping(t_address,t_uint256))",
+              "src": "contracts/DesubToken.sol:58"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_subTokenHolderReferralPayouts",
+              "type": "t_mapping(t_uint256,t_mapping(t_address,t_uint256))",
+              "src": "contracts/DesubToken.sol:62"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_subTokenHolderStackRewardPayouts",
+              "type": "t_mapping(t_uint256,t_mapping(t_address,t_uint256))",
+              "src": "contracts/DesubToken.sol:66"
+            }
+          ],
+          "types": {
+            "t_string_storage": {
+              "label": "string"
+            },
+            "t_address": {
+              "label": "address"
+            },
+            "t_mapping(t_uint256,t_address)": {
+              "label": "mapping(uint256 => address)"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            },
+            "t_mapping(t_address,t_struct(UintSet)844_storage)": {
+              "label": "mapping(address => struct EnumerableSetUpgradeable.UintSet)"
+            },
+            "t_struct(UintSet)844_storage": {
+              "label": "struct EnumerableSetUpgradeable.UintSet",
+              "members": [
+                {
+                  "label": "_inner",
+                  "type": "t_struct(Set)386_storage"
+                }
+              ]
+            },
+            "t_struct(Set)386_storage": {
+              "label": "struct EnumerableSetUpgradeable.Set",
+              "members": [
+                {
+                  "label": "_values",
+                  "type": "t_array(t_bytes32)dyn_storage"
+                },
+                {
+                  "label": "_indexes",
+                  "type": "t_mapping(t_bytes32,t_uint256)"
+                }
+              ]
+            },
+            "t_array(t_bytes32)dyn_storage": {
+              "label": "bytes32[]"
+            },
+            "t_bytes32": {
+              "label": "bytes32"
+            },
+            "t_mapping(t_bytes32,t_uint256)": {
+              "label": "mapping(bytes32 => uint256)"
+            },
+            "t_mapping(t_address,t_uint256)": {
+              "label": "mapping(address => uint256)"
+            },
+            "t_mapping(t_uint256,t_uint256)": {
+              "label": "mapping(uint256 => uint256)"
+            },
+            "t_mapping(t_uint256,t_mapping(t_address,t_uint256))": {
+              "label": "mapping(uint256 => mapping(address => uint256))"
+            },
+            "t_mapping(t_uint256,t_mapping(t_uint256,t_uint256))": {
+              "label": "mapping(uint256 => mapping(uint256 => uint256))"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "console": {
+        "src": "hardhat/console.sol:4",
+        "version": {
+          "withMetadata": "6491c02acc23094555b3a3d10900e1e508dd2ccdf8080845808de539f078ea20",
+          "withoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff",
+          "linkedWithoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      }
+    },
+    {
+      "Initializable": {
+        "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:35",
+        "inherit": [],
+        "libraries": [
+          "AddressUpgradeable"
+        ],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "Initializable",
+              "label": "_initialized",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:39"
+            },
+            {
+              "contract": "Initializable",
+              "label": "_initializing",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:44"
+            }
+          ],
+          "types": {
+            "t_bool": {
+              "label": "bool"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "ReentrancyGuardUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol:23",
+        "inherit": [
+          "Initializable"
+        ],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "ReentrancyGuardUpgradeable",
+              "label": "_status",
+              "type": "t_uint256",
+              "src": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol:38"
+            },
+            {
+              "contract": "ReentrancyGuardUpgradeable",
+              "label": "__gap",
+              "type": "t_array(t_uint256)49_storage",
+              "src": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol:74"
+            }
+          ],
+          "types": {
+            "t_uint256": {
+              "label": "uint256"
+            },
+            "t_array(t_uint256)49_storage": {
+              "label": "uint256[49]"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "AddressUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol:9",
+        "version": {
+          "withMetadata": "b4cd76c46f252229667db54d569be91a1aadff5dde4c2878439b80406b3842ac",
+          "withoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff",
+          "linkedWithoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "EnumerableSetUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/utils/structs/EnumerableSetUpgradeable.sol:30",
+        "version": {
+          "withMetadata": "41c435fce4cb156d899649b04332a8ca7602ac9b7c1193dae552030b5ef36913",
+          "withoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff",
+          "linkedWithoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "DesubToken": {
+        "src": "contracts/DesubToken.sol:11",
+        "version": {
+          "withMetadata": "5ade015f1faaf73c374e0b2d87e703ac95229e2be20a50968340350d1d443fb2",
+          "withoutMetadata": "9ec6d20849af1bd732740c3de60a27c80ac20fe5a10362f8488ca849e8a1be92",
+          "linkedWithoutMetadata": "9ec6d20849af1bd732740c3de60a27c80ac20fe5a10362f8488ca849e8a1be92"
+        },
+        "inherit": [
+          "ReentrancyGuardUpgradeable",
+          "Initializable"
+        ],
+        "libraries": [
+          "EnumerableSetUpgradeable",
+          "console"
+        ],
+        "methods": [
+          "initialize(string,string)",
+          "ownerOf(uint256)",
+          "balanceOf(address)",
+          "tokenOfOwnerByIndex(address,uint256)",
+          "numberOfReferralsForTokenIDandAddress(uint256,address)",
+          "getSequenceOfPurchaseOfTokenIDByAddress(uint256,address)",
+          "getNumberOfSubTokensSoldOfTokenID(uint256)",
+          "getTokenHolderRoyaltyGrossTotal(uint256)",
+          "getSubTokenHolderRoyaltyBalance(address,uint256)",
+          "getSubTokenHolderStackRewardPct(address,uint256)",
+          "getSubTokenHolderTotalStackReward(address,uint256)",
+          "getTokenHolderRoyaltyPaidOut(uint256)",
+          "getSubTokenHolderReferralRoyaltyPaidOut(uint256)",
+          "getSubTokenHolderStackRewardPaidOut(uint256)",
+          "payOutTokenHolderRoyalty(uint256,uint256,address)",
+          "payOutSubTokenHolderReferralRoyalty(uint256,uint256,address)",
+          "payOutSubTokenHolderStackReward(uint256,uint256,address)",
+          "mint(address,uint256)",
+          "purchaseSubToken(address,uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "DesubToken",
+              "label": "_name",
+              "type": "t_string_storage",
+              "src": "contracts/DesubToken.sol:16"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_symbol",
+              "type": "t_string_storage",
+              "src": "contracts/DesubToken.sol:17"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "owner",
+              "type": "t_address",
+              "src": "contracts/DesubToken.sol:28"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_contentTokenOwners",
+              "type": "t_mapping(t_uint256,t_address)",
+              "src": "contracts/DesubToken.sol:31"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_contentTokenHoldings",
+              "type": "t_mapping(t_address,t_struct(UintSet)844_storage)",
+              "src": "contracts/DesubToken.sol:34"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_balances",
+              "type": "t_mapping(t_address,t_uint256)",
+              "src": "contracts/DesubToken.sol:37"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_subTokenIncrementers",
+              "type": "t_mapping(t_uint256,t_uint256)",
+              "src": "contracts/DesubToken.sol:41"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_subTokenPurchaseSequences",
+              "type": "t_mapping(t_uint256,t_mapping(t_address,t_uint256))",
+              "src": "contracts/DesubToken.sol:47"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_subTokenHolderStackRewardPct",
+              "type": "t_mapping(t_uint256,t_mapping(t_uint256,t_uint256))",
+              "src": "contracts/DesubToken.sol:51"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_subTokenReferrals",
+              "type": "t_mapping(t_uint256,t_mapping(t_address,t_uint256))",
+              "src": "contracts/DesubToken.sol:54"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_tokenHolderRoyaltyPayouts",
+              "type": "t_mapping(t_uint256,t_mapping(t_address,t_uint256))",
+              "src": "contracts/DesubToken.sol:58"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_subTokenHolderReferralPayouts",
+              "type": "t_mapping(t_uint256,t_mapping(t_address,t_uint256))",
+              "src": "contracts/DesubToken.sol:62"
+            },
+            {
+              "contract": "DesubToken",
+              "label": "_subTokenHolderStackRewardPayouts",
+              "type": "t_mapping(t_uint256,t_mapping(t_address,t_uint256))",
+              "src": "contracts/DesubToken.sol:66"
+            }
+          ],
+          "types": {
+            "t_string_storage": {
+              "label": "string"
+            },
+            "t_address": {
+              "label": "address"
+            },
+            "t_mapping(t_uint256,t_address)": {
+              "label": "mapping(uint256 => address)"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            },
+            "t_mapping(t_address,t_struct(UintSet)844_storage)": {
+              "label": "mapping(address => struct EnumerableSetUpgradeable.UintSet)"
+            },
+            "t_struct(UintSet)844_storage": {
+              "label": "struct EnumerableSetUpgradeable.UintSet",
+              "members": [
+                {
+                  "label": "_inner",
+                  "type": "t_struct(Set)386_storage"
+                }
+              ]
+            },
+            "t_struct(Set)386_storage": {
+              "label": "struct EnumerableSetUpgradeable.Set",
+              "members": [
+                {
+                  "label": "_values",
+                  "type": "t_array(t_bytes32)dyn_storage"
+                },
+                {
+                  "label": "_indexes",
+                  "type": "t_mapping(t_bytes32,t_uint256)"
+                }
+              ]
+            },
+            "t_array(t_bytes32)dyn_storage": {
+              "label": "bytes32[]"
+            },
+            "t_bytes32": {
+              "label": "bytes32"
+            },
+            "t_mapping(t_bytes32,t_uint256)": {
+              "label": "mapping(bytes32 => uint256)"
+            },
+            "t_mapping(t_address,t_uint256)": {
+              "label": "mapping(address => uint256)"
+            },
+            "t_mapping(t_uint256,t_uint256)": {
+              "label": "mapping(uint256 => uint256)"
+            },
+            "t_mapping(t_uint256,t_mapping(t_address,t_uint256))": {
+              "label": "mapping(uint256 => mapping(address => uint256))"
+            },
+            "t_mapping(t_uint256,t_mapping(t_uint256,t_uint256))": {
+              "label": "mapping(uint256 => mapping(uint256 => uint256))"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "DesubTokenV2": {
+        "src": "contracts/DesubTokenV2.sol:11",
+        "version": {
+          "withMetadata": "4ce103842744bb8e3f6d8c156d4c7c4485d5403f40777cc3d21b1ff866c94d37",
+          "withoutMetadata": "2794e8a2ee415fa5a1be0c51364bc17b701eaf12c33b9712605ca8c21db582ee",
+          "linkedWithoutMetadata": "2794e8a2ee415fa5a1be0c51364bc17b701eaf12c33b9712605ca8c21db582ee"
+        },
+        "inherit": [
+          "ReentrancyGuardUpgradeable",
+          "Initializable"
+        ],
+        "libraries": [
+          "EnumerableSetUpgradeable",
+          "console"
+        ],
+        "methods": [
+          "initialize(string,string)",
+          "ownerOf(uint256)",
+          "balanceOf(address)",
+          "tokenOfOwnerByIndex(address,uint256)",
+          "numberOfReferralsForTokenIDandAddress(uint256,address)",
+          "getSequenceOfPurchaseOfTokenIDByAddress(uint256,address)",
+          "getNumberOfSubTokensSoldOfTokenID(uint256)",
+          "getTokenHolderRoyaltyGrossTotal(uint256)",
+          "getSubTokenHolderRoyaltyBalance(address,uint256)",
+          "getSubTokenHolderStackRewardPct(address,uint256)",
+          "getSubTokenHolderTotalStackReward(address,uint256)",
+          "getTokenHolderRoyaltyPaidOut(uint256)",
+          "getSubTokenHolderReferralRoyaltyPaidOut(uint256)",
+          "getSubTokenHolderStackRewardPaidOut(uint256)",
+          "payOutTokenHolderRoyalty(uint256,uint256,address)",
+          "payOutSubTokenHolderReferralRoyalty(uint256,uint256,address)",
+          "payOutSubTokenHolderStackReward(uint256,uint256,address)",
+          "mint(address,uint256)",
+          "purchaseSubToken(address,uint256)",
+          "upgradeTest()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "DesubTokenV2",
+              "label": "_name",
+              "type": "t_string_storage",
+              "src": "contracts/DesubTokenV2.sol:16"
+            },
+            {
+              "contract": "DesubTokenV2",
+              "label": "_symbol",
+              "type": "t_string_storage",
+              "src": "contracts/DesubTokenV2.sol:17"
+            },
+            {
+              "contract": "DesubTokenV2",
+              "label": "owner",
+              "type": "t_address",
+              "src": "contracts/DesubTokenV2.sol:28"
+            },
+            {
+              "contract": "DesubTokenV2",
+              "label": "_contentTokenOwners",
+              "type": "t_mapping(t_uint256,t_address)",
+              "src": "contracts/DesubTokenV2.sol:31"
+            },
+            {
+              "contract": "DesubTokenV2",
+              "label": "_contentTokenHoldings",
+              "type": "t_mapping(t_address,t_struct(UintSet)844_storage)",
+              "src": "contracts/DesubTokenV2.sol:34"
+            },
+            {
+              "contract": "DesubTokenV2",
+              "label": "_balances",
+              "type": "t_mapping(t_address,t_uint256)",
+              "src": "contracts/DesubTokenV2.sol:37"
+            },
+            {
+              "contract": "DesubTokenV2",
+              "label": "_subTokenIncrementers",
+              "type": "t_mapping(t_uint256,t_uint256)",
+              "src": "contracts/DesubTokenV2.sol:41"
+            },
+            {
+              "contract": "DesubTokenV2",
+              "label": "_subTokenPurchaseSequences",
+              "type": "t_mapping(t_uint256,t_mapping(t_address,t_uint256))",
+              "src": "contracts/DesubTokenV2.sol:47"
+            },
+            {
+              "contract": "DesubTokenV2",
+              "label": "_subTokenHolderStackRewardPct",
+              "type": "t_mapping(t_uint256,t_mapping(t_uint256,t_uint256))",
+              "src": "contracts/DesubTokenV2.sol:51"
+            },
+            {
+              "contract": "DesubTokenV2",
+              "label": "_subTokenReferrals",
+              "type": "t_mapping(t_uint256,t_mapping(t_address,t_uint256))",
+              "src": "contracts/DesubTokenV2.sol:54"
+            },
+            {
+              "contract": "DesubTokenV2",
+              "label": "_tokenHolderRoyaltyPayouts",
+              "type": "t_mapping(t_uint256,t_mapping(t_address,t_uint256))",
+              "src": "contracts/DesubTokenV2.sol:58"
+            },
+            {
+              "contract": "DesubTokenV2",
+              "label": "_subTokenHolderReferralPayouts",
+              "type": "t_mapping(t_uint256,t_mapping(t_address,t_uint256))",
+              "src": "contracts/DesubTokenV2.sol:62"
+            },
+            {
+              "contract": "DesubTokenV2",
+              "label": "_subTokenHolderStackRewardPayouts",
+              "type": "t_mapping(t_uint256,t_mapping(t_address,t_uint256))",
+              "src": "contracts/DesubTokenV2.sol:66"
+            }
+          ],
+          "types": {
+            "t_string_storage": {
+              "label": "string"
+            },
+            "t_address": {
+              "label": "address"
+            },
+            "t_mapping(t_uint256,t_address)": {
+              "label": "mapping(uint256 => address)"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            },
+            "t_mapping(t_address,t_struct(UintSet)844_storage)": {
+              "label": "mapping(address => struct EnumerableSetUpgradeable.UintSet)"
+            },
+            "t_struct(UintSet)844_storage": {
+              "label": "struct EnumerableSetUpgradeable.UintSet",
+              "members": [
+                {
+                  "label": "_inner",
+                  "type": "t_struct(Set)386_storage"
+                }
+              ]
+            },
+            "t_struct(Set)386_storage": {
+              "label": "struct EnumerableSetUpgradeable.Set",
+              "members": [
+                {
+                  "label": "_values",
+                  "type": "t_array(t_bytes32)dyn_storage"
+                },
+                {
+                  "label": "_indexes",
+                  "type": "t_mapping(t_bytes32,t_uint256)"
+                }
+              ]
+            },
+            "t_array(t_bytes32)dyn_storage": {
+              "label": "bytes32[]"
+            },
+            "t_bytes32": {
+              "label": "bytes32"
+            },
+            "t_mapping(t_bytes32,t_uint256)": {
+              "label": "mapping(bytes32 => uint256)"
+            },
+            "t_mapping(t_address,t_uint256)": {
+              "label": "mapping(address => uint256)"
+            },
+            "t_mapping(t_uint256,t_uint256)": {
+              "label": "mapping(uint256 => uint256)"
+            },
+            "t_mapping(t_uint256,t_mapping(t_address,t_uint256))": {
+              "label": "mapping(uint256 => mapping(address => uint256))"
+            },
+            "t_mapping(t_uint256,t_mapping(t_uint256,t_uint256))": {
+              "label": "mapping(uint256 => mapping(uint256 => uint256))"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "DSMath": {
+        "src": "contracts/math.sol:19",
+        "version": {
+          "withMetadata": "963f8c5a7a87fc2a6fcb16d42a9a2b6b4e0a0e9b1f4c778afbead0ddf30eba30",
+          "withoutMetadata": "ac0db523ddc3e330f735df7b3b0b24460531c71290a891170e840f8f67d5ff6b",
+          "linkedWithoutMetadata": "ac0db523ddc3e330f735df7b3b0b24460531c71290a891170e840f8f67d5ff6b"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "console": {
+        "src": "hardhat/console.sol:4",
+        "version": {
+          "withMetadata": "6491c02acc23094555b3a3d10900e1e508dd2ccdf8080845808de539f078ea20",
+          "withoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff",
+          "linkedWithoutMetadata": "08d24783a787f8a51dea0c166bb6f91a4f0865e02d03d749f102d332e6ead0ff"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      }
+    }
+  ]
+}
